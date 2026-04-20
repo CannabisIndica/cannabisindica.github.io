@@ -16,10 +16,10 @@ main:
     url:  /astro-outside-class/
 
   - title: "Humanity"
-    url: /humanity/    
-    
-  #- title: "Portfolio"
-  #  url: /portfolio/
+    url: /humanity/
+
+  - title: "Photography"
+    url: /photography/    
         
   - title: "Blog Posts"
     url: /year-archive/
