@@ -20,7 +20,7 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
   </div>
 
   <figcaption style="margin-top:10px; font-style:italic;">
-    Non-Radial Oscillations on the Stellar Surface. Trying this out in preparation for my Final Year Thesis in Asteroseismology.
+    Non-Radial Oscillations on the Stellar Surface. Trying this out in preparation for my Final Year Thesis in Asteroseismology. \( \ell \).
   </figcaption>
 </figure>
 <br>
@@ -29,7 +29,7 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
 
 Other than enjoying my exchange, I am volunteering with [Street Astronomy Copehagen](https://www.streetastronomy.com/copenhagen/). We set up telescopes somewhere in Copenhagen so passerbys can have a look at the sky. Sidewalk Astronomy is a humbling experience.
 
-<figure style="text-align:justify; width:100%; margin:0 auto; display: inline-block">
+<figure style="text-align:justify; width:100%; margin:0 auto; display: inline-block;">
   <div style="display:flex; gap:20px; justify-content:center; align-items:center;">
     
   <img src="/images/about/image_sidewalk.jpeg"
@@ -46,5 +46,3 @@ Other than enjoying my exchange, I am volunteering with [Street Astronomy Copeha
     The image is taken at Dronning Louises Bro (I am the one in red long-jacket). The video is from Freetown Christiania, where the nice lady said "Thanks for doing this for free, my pension is already too little".
   </figcaption>
 </figure>
-
-
