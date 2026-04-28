@@ -9,13 +9,29 @@ redirect_from:
 
 I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Undergraduate at the National University of Singapore, currently on exchange at Københavns Universitet.
 
+
+<figure style="text-align:justify; width:100%; margin:0 auto;">
+  <div style="display:flex; justify-content:center; align-items:center;">
+    
+  <img src="/images/about/stellar_oscillations.gif"
+        alt="balls"
+        style="height:auto; width:auto;">
+
+  </div>
+
+  <figcaption style="margin-top:10px; font-style:italic;">
+    Non-Radial Oscillations on the Stellar Surface. Trying this out in preparation for my Final Year Thesis in Asteroseismology.
+  </figcaption>
+</figure>
+<br>
+
 Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to just archive the stuff I do (astronomy and beyond). Enjoy :).
 
 # **What am I currently upto?**
 
 Other than enjoying my exchange, I am volunteering with [Street Astronomy Copehagen](https://www.streetastronomy.com/copenhagen/). We set up telescopes somewhere in Copenhagen so passerbys can have a look at the sky. Sidewalk Astronomy is a humbling experience.
 
-<figure style="text-align:center;">
+<figure style="text-align:justify; width:100%; margin:0 auto;">
   <div style="display:flex; gap:20px; justify-content:center; align-items:center;">
     
   <img src="/images/about/image_sidewalk.jpeg"
