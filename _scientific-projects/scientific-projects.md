@@ -1,5 +1,5 @@
 ---
-permalink: /
+permalink: /scientific-projects/
 title: "**Scientific Projects**"
 author_profile: true
 ---
