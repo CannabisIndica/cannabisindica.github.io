@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Undergraduate at the National University of Singapore, currently on exchange at Københavns Universitet.
+I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Undergraduate at the National University of Singapore, currently on exchange at Københavns Universitet. Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to display the stuff I do (astronomy and beyond) as its difficult to show anywhere else. Enjoy :).
 
 
 <figure style="text-align:justify; width:100%; margin:0 auto;">
@@ -15,7 +15,7 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
     
   <img src="/images/about/stellar_oscillations.gif"
         alt="balls"
-        style="height:auto; width:auto;">
+        style="height:300px; width:auto;">
 
   </div>
 
@@ -24,8 +24,6 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
   </figcaption>
 </figure>
 <br>
-
-Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to just archive the stuff I do (astronomy and beyond). Enjoy :).
 
 # **What am I currently upto?**
 
