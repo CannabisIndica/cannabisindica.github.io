@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Hi, enjoy whatever I do on this website"
+title: "**Hi, enjoy whatever I do on this website**"
 author_profile: true
 redirect_from: 
   - /about/
@@ -20,7 +20,7 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
   </div>
 
   <figcaption style="margin-top:10px; font-style:italic;">
-    Non-Radial Oscillations on the Stellar Surface. Trying this out in preparation for my Final Year Thesis in Asteroseismology. \( \ell \).
+    Trying this out in preparation for my Final Year Thesis in Asteroseismology. Non-Radial Oscillations on the Stellar Surface, where \( \ell \) is the total number of nodes on the surface and \(|m|\) is the number of longitudinal nodes.
   </figcaption>
 </figure>
 <br>
