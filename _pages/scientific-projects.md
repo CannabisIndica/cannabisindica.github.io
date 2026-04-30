@@ -11,7 +11,7 @@ This page showcases some (the ones that are good enough for public viewing) scie
     
   <img src="/images/scientific-projects/albedo.gif"
         alt="grid"
-        style="height:150px; width:auto;">
+        style="height:300px; width:auto;">
 
   </div>
 
@@ -44,7 +44,7 @@ star challenges formation models”</span> (2025). [Report].
 
 9. <span style="color: pink;">Growth Analysis of Sunspot in AR12741 using High-Resolution Solar Imaging \(^\dagger\)</span> _Research done at National Junior College, Singapore_ (2020). [[Report](/files/scientific-projects/)].
 
-10. <span style="color: pink;">Closing-up onto our sun: Solar Imaging \(^\dagger\)</span>. _Research done at National Junior College, Singapore_ (2019). [[Report](https://doi.org/10.1051/epjconf/202024007011)].
+10. <span style="color: pink;">Closing-up onto our sun: Solar Imaging \( ^\dagger \)</span>. _Research done at National Junior College, Singapore_ (2019). [[Report](https://doi.org/10.1051/epjconf/202024007011)].
 
 ---
-_\(^\dagger\) These research papers may not be the best, but at least they exist and that is good enough for my under 18 self._
+$^\dagger$ _These research papers may not be the best, but at least they exist and that is good enough for my under 18 self._
