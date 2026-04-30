@@ -47,4 +47,4 @@ star challenges formation models”</span> (2025). [Report].
 10. <span style="color: pink;">Closing-up onto our sun: Solar Imaging \( ^\dagger \)</span>. _Research done at National Junior College, Singapore_ (2019). [[Report](https://doi.org/10.1051/epjconf/202024007011)].
 
 ---
-$^\dagger$ _These research papers may not be the best, but at least they exist and that is good enough for my under 18 self._
+\( \dagger \) _These research papers may not be the best, but at least they exist and that is good enough for my under 18 self._
