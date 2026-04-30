@@ -4,7 +4,7 @@ title: "**Humanities**"
 author_profile: true
 ---
 
-This page showcases some (the ones that are good enough for public viewing) essays and presentations done in official academic capacity. These works were done as part of NUS College (which is the interdisciplinary liberal arts college, even though they do not want to be called that). I am a physics major at heart, so these arent great works but, they exist.
+This page showcases some (the ones that are good enough for public viewing) essays and presentations done in official academic capacity. These works were done as part of NUS College (which is the interdisciplinary liberal arts college, even though they do not want to be called that). I am a physics major at heart, so these aren't great works but, they exist.
 
 ---
 

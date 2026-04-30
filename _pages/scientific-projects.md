@@ -4,7 +4,7 @@ title: "**Scientific Projects**"
 author_profile: true
 ---
 
-This page showcases some (the ones that are good enough for public viewing) scientific projects and presentations done in official academic capacity. The projects are in <span style="color:orange;">orange</span> and research papers (whether published or unpublished) are in <span style="color:pink;">pink</span>.
+This page showcases some (the ones that are good enough for public viewing) scientific projects and presentations done in official academic capacity. The projects are in <span style="color:orange;">orange</span> and research papers (whether published or unpublished) are in <span style="color:green;">green</span>.
 
 <figure style="text-align:justify; width:100%; margin:0 auto; display:inline-block;">
   <div style="display:flex; justify-content:center; align-items:center;">
@@ -27,7 +27,7 @@ This page showcases some (the ones that are good enough for public viewing) scie
 
 2. <span style="color: orange;">Bonding with Periodic Variable Stars</span>. _As a mentor of SP3176 at NUS, I contributed in creating this project on measuring and analysing light curves of periodic variable stars_ (2025). [[Assignment Link](https://sps.nus.edu.sg/~chammika/sp3176/docs/about/assessment-project-2_variable-stars.html)].
 
-3. <span style="color: pink;">Optimisation of LEO satellites Doppler 
+3. <span style="color: green;">Optimisation of LEO satellites Doppler 
 shift compensation by reducing TLE errors and improving trajectory prediction algorithms</span>. _Research done while attached at the Satellite Technology and Research (STAR) Centre, Singapore_ (2025). [[Report](/files/scientific-projects/satellite_report.pdf), [Presentation](/files/scientific-projects/satellite_presentation.pptx), [Poster](/files/scientific-projects/satellite_poster.pdf)].
 
 4. <span style="color: orange;">Reproducing and analysing Stefansson et al. 2023’s paper, “A
@@ -40,11 +40,11 @@ star challenges formation models”</span> (2025). [[Report](/files/scientific-p
 
 7. <span style="color: orange;">An Exercise in Demonstrating Time Dilation</span>. _Experiment on creating a muon detector and collecting data at different altitudes to demonstrate time dilation_  (2023). [[Report](/files/scientific-projects/muon.pdf)].
 
-8. <span style="color: pink;">Fano-resonant metasurfaces for virus sensing application</span><sup>*</sup>. _Research done while attached under the Institute of High Performance Computing (IHPC), Singapore_ (2021). [[Report](/files/scientific-projects/fano_resonant_report.pdf), [Presentation](/files/scientific-projects/fano_resonant_presentation.pptx)].
+8. <span style="color: green;">Fano-resonant metasurfaces for virus sensing application</span><sup>*</sup>. _Research done while attached under the Institute of High Performance Computing (IHPC), Singapore_ (2021). [[Report](/files/scientific-projects/fano_resonant_report.pdf), [Presentation](/files/scientific-projects/fano_resonant_presentation.pptx)].
 
-9. <span style="color: pink;">Growth Analysis of Sunspot in AR12741 using High-Resolution Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2020). [[Report](/files/scientific-projects/growth_report.pdf)].
+9. <span style="color: green;">Growth Analysis of Sunspot in AR12741 using High-Resolution Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2020). [[Report](/files/scientific-projects/growth_report.pdf)].
 
-10. <span style="color: pink;">Closing-up onto our sun: Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2019). [[Report](https://doi.org/10.1051/epjconf/202024007011)].
+10. <span style="color: green;">Closing-up onto our sun: Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2019). [[Report](https://doi.org/10.1051/epjconf/202024007011)].
 
 ---
 <sup>*</sup> _These research papers may not be the best, but at least they exist and that is good enough for my under 18 self._
