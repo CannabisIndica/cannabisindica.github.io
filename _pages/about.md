@@ -29,7 +29,7 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
 
 Other than enjoying my exchange, I am volunteering with [Street Astronomy Copehagen](https://www.streetastronomy.com/copenhagen/). We set up telescopes somewhere in Copenhagen so passerbys can have a look at the sky. Sidewalk Astronomy is a humbling experience.
 
-<figure style="text-align:justify; width:100%; margin:0 auto; display: inline-block;">
+<figure style="text-align:justify; width:80%; margin:0 auto; display: inline-block;">
   <div style="display:flex; gap:20px; justify-content:center; align-items:center;">
     
   <img src="/images/about/image_sidewalk.jpeg"
