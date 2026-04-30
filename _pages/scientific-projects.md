@@ -42,7 +42,7 @@ star challenges formation models”</span> (2025). [[Report](/files/scientific-p
 
 8. <span style="color: pink;">Fano-resonant metasurfaces for virus sensing application</span><sup>*</sup>. _Research done while attached under the Institute of High Performance Computing (IHPC), Singapore_ (2021). [[Report](/files/scientific-projects/fano_resonant_report.pdf), [Presentation](/files/scientific-projects/fano_resonant_presentation.pptx)].
 
-9. <span style="color: pink;">Growth Analysis of Sunspot in AR12741 using High-Resolution Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2020). [[Report](/files/scientific-projects/)].
+9. <span style="color: pink;">Growth Analysis of Sunspot in AR12741 using High-Resolution Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2020). [[Report](/files/scientific-projects/growth_report.pdf)].
 
 10. <span style="color: pink;">Closing-up onto our sun: Solar Imaging</span><sup>*</sup>. _Research done at National Junior College, Singapore_ (2019). [[Report](https://doi.org/10.1051/epjconf/202024007011)].
 
