@@ -8,4 +8,4 @@ author_profile: true
 
 ---
 
-I like photography, I am not professionally trained.
+I like photography. Will put something here, I guess.
