@@ -34,11 +34,11 @@ Other than enjoying my exchange, I am volunteering with [Street Astronomy Copeha
     
   <img src="/images/about/image_sidewalk.jpeg"
         alt="Nice Photo"
-        style="height:auto; max-width:80%;">
+        style="height:auto; max-width:70%;">
 
   <img src="/images/about/video_sidewalk.gif"
         alt="Nice Video"
-        style="height:auto; max-width:20%;">
+        style="height:auto; max-width:30%;">
 
   </div>
 
