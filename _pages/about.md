@@ -15,7 +15,7 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
     
   <img src="/images/about/stellar_oscillations.gif"
         alt="balls"
-        style="height:300px; width:auto;">
+        style="height:auto; max-width:100%;">
 
   </div>
 
@@ -30,15 +30,15 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
 Other than enjoying my exchange, I am volunteering with [Street Astronomy Copehagen](https://www.streetastronomy.com/copenhagen/). We set up telescopes somewhere in Copenhagen so passerbys can have a look at the sky. Sidewalk Astronomy is a humbling experience.
 
 <figure style="text-align:justify; width:100%; margin:0 auto; display: inline-block;">
-  <div style="display:flex; gap:20px; justify-content:center; align-items:center;">
+  <div style="display:flex; gap:20px; justify-content:center; align-items:center; flex-wrap:wrap;">
     
   <img src="/images/about/image_sidewalk.jpeg"
         alt="Nice Photo"
-        style="height:300px; width:auto;">
+        style="height:auto; max-width:100%;">
 
   <img src="/images/about/video_sidewalk.gif"
         alt="Nice Video"
-        style="height:300px; width:auto;">
+        style="height:auto; max-width:100%;">
 
   </div>
 
