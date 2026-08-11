@@ -75,6 +75,24 @@ You can read about the event [here](www.cosmiccup.org). I founded this competiti
 3. <span style="color:orange;">Vedic Knowledge</span>. _Long Type Question on the Practical Astronomy in Ancient Indian Astrology_ (2023). [[Question 5](https://drive.google.com/file/d/1Crd9ID0EGLWSQx5YaAGcDPiWpOzUPWsR/view?usp=share_link)].
 
 ## **Miscellaneous**
-1. As of now, I have done sidewalk astronomy for the general public in 4 countries! India, Singapore, Malaysia, and Denmark. Most interestingly, it reminds me how we are all humans at the end of the day. Most people look inside the telescope and are amazed in the same way.
+1. As of now, I have done sidewalk astronomy for the general public in 4 countries! India, Singapore, Malaysia, and Denmark. Most interestingly, it reminds me how we are all humans at the end of the day. Most people look inside the telescope and are amazed in the same way. Most notably, I volunteered with [Street Astronomy Copenhagen](https://www.streetastronomy.com/copenhagen/) during my exchange. We set up telescopes somewhere in Copenhagen so passerbys can have a look at the sky. Sidewalk Astronomy is a humbling experience.
+
+<figure style="text-align:justify; width:100%; margin:0 auto; display: inline-block;">
+  <div style="display:flex; gap:15px; justify-content:center; align-items:center;">
+    
+  <img src="/images/about/image_sidewalk.jpeg"
+        alt="Nice Photo"
+        style="height:auto; max-width:69%;">
+
+  <img src="/images/about/video_sidewalk.gif"
+        alt="Nice Video"
+        style="height:auto; max-width:29%;">
+
+  </div>
+
+  <figcaption style="margin-top:10px; font-style:italic;">
+    The image is taken at Dronning Louises Bro (I am the one in red long-jacket). The video is from Freetown Christiania, where the nice lady said "Thanks for doing this for free, my pension is already too little".
+  </figcaption>
+</figure>
 
 2. I will write as my brain reminds me to...

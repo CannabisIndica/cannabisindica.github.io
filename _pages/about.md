@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Undergraduate at the National University of Singapore, currently on exchange at Københavns Universitet. Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to display the stuff I do (astronomy and beyond) as its difficult to show anywhere else. It is not meant to replace my [CV](/files/Kushagra_CV.pdf). Enjoy :).
+I am Kushagra (or Kush; whatever you can pronouce). I am an Year 4 Physics Undergraduate at the National University of Singapore. Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to display the stuff I do (astronomy and beyond) as its difficult to show anywhere else. It is not meant to replace my [CV](/files/Kushagra_CV.pdf). Enjoy :).
 
 
 <figure style="text-align:justify; width:100%; margin:0 auto; display:inline-block;">
@@ -27,22 +27,4 @@ I am Kushagra (or Kush; whatever you can pronouce). I am an Year 3 Physics Under
 
 # **What am I currently upto?**
 
-Other than enjoying my exchange, I am volunteering with [Street Astronomy Copenhagen](https://www.streetastronomy.com/copenhagen/). We set up telescopes somewhere in Copenhagen so passerbys can have a look at the sky. Sidewalk Astronomy is a humbling experience.
-
-<figure style="text-align:justify; width:100%; margin:0 auto; display: inline-block;">
-  <div style="display:flex; gap:15px; justify-content:center; align-items:center;">
-    
-  <img src="/images/about/image_sidewalk.jpeg"
-        alt="Nice Photo"
-        style="height:auto; max-width:69%;">
-
-  <img src="/images/about/video_sidewalk.gif"
-        alt="Nice Video"
-        style="height:auto; max-width:29%;">
-
-  </div>
-
-  <figcaption style="margin-top:10px; font-style:italic;">
-    The image is taken at Dronning Louises Bro (I am the one in red long-jacket). The video is from Freetown Christiania, where the nice lady said "Thanks for doing this for free, my pension is already too little".
-  </figcaption>
-</figure>
+I am back from my exchange, and have started my final year at university. Other than my FYP, trying to figure out what to do after I graduate ... :) 
