@@ -4,15 +4,16 @@
   --ink: #1b1b1b;
   --paper: #faf9f6;
   --accent: #b5462f;
-  --row-unit: 90px;
+  --row-unit: 10px;
+  --grid-gap: 12px;
 
   width: 100%;
   padding: 40px 10px 80px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-auto-rows: var(--row-unit);
   grid-auto-flow: dense;
-  gap: 14px;
+  gap: var(--grid-gap);
 }
 
 .photo-tile {
@@ -22,7 +23,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  /* grid-column / grid-row spans are set inline by JS, re-rolled each load */
+  /* grid-column is set randomly by JS; grid-row is computed from each
+     image's real aspect ratio once it loads, both re-rolled each load */
 }
 
 .photo-tile:hover,
@@ -37,7 +39,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: #ddd;
+  background: var(--paper);
 }
 
 .photo-tile .photo-tile-caption {
@@ -106,6 +108,12 @@
   max-height: 65vh;
   object-fit: contain;
   background: #111;
+  transition: opacity 0.15s ease;
+}
+
+.photo-lightbox-panel img.is-loading-full {
+  opacity: 0.85;
+  filter: blur(1px);
 }
 
 .photo-lightbox-meta {

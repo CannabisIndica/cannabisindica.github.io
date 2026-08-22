@@ -55,22 +55,46 @@
     return Math.random() * (max - min) + min;
   }
 
-  // Possible cell sizes (in grid-column/row spans). Weighted so most tiles
-  // stay small and a few randomly get pulled out as bigger feature tiles —
-  // re-rolled fresh on every page load.
-  var SIZE_OPTIONS = [
-    { col: 1, row: 1, weight: 5 },
-    { col: 2, row: 1, weight: 2 },
-    { col: 1, row: 2, weight: 2 },
-    { col: 2, row: 2, weight: 1 },
+  // Possible cell widths (in grid columns). Weighted so most tiles stay
+  // narrow and a few randomly get pulled out as wider feature tiles —
+  // re-rolled fresh on every page load. Row height is NOT randomized here;
+  // it's computed per-image from its real aspect ratio once it loads, so
+  // photos are never cropped or letterboxed.
+  var COL_OPTIONS = [
+    { col: 1, weight: 5 },
+    { col: 2, weight: 2 },
   ];
-  var WEIGHTED_SIZES = SIZE_OPTIONS.reduce(function (acc, opt) {
-    for (var i = 0; i < opt.weight; i++) acc.push(opt);
+  var WEIGHTED_COLS = COL_OPTIONS.reduce(function (acc, opt) {
+    for (var i = 0; i < opt.weight; i++) acc.push(opt.col);
     return acc;
   }, []);
 
-  function randomSize() {
-    return WEIGHTED_SIZES[Math.floor(Math.random() * WEIGHTED_SIZES.length)];
+  function randomColSpan() {
+    return WEIGHTED_COLS[Math.floor(Math.random() * WEIGHTED_COLS.length)];
+  }
+
+  // Reads the grid's row height + gap straight from CSS so this stays in
+  // sync if you ever tweak --row-unit / gap in the stylesheet.
+  function getGridMetrics() {
+    var styles = getComputedStyle(wall);
+    var rowUnit = parseFloat(styles.getPropertyValue("--row-unit")) || 10;
+    var gap = parseFloat(styles.rowGap) || parseFloat(styles.gap) || 0;
+    return { rowUnit: rowUnit, gap: gap };
+  }
+
+  // Sizes a tile's grid-row span so its height matches the image's real
+  // aspect ratio at its current rendered width — no crop, no empty space.
+  function sizeTileToImage(tile, img) {
+    if (!img.naturalWidth || !img.naturalHeight) return;
+    var metrics = getGridMetrics();
+    var width = tile.getBoundingClientRect().width;
+    var aspect = img.naturalWidth / img.naturalHeight;
+    var neededHeight = width / aspect;
+    var rowSpan = Math.max(
+      1,
+      Math.round((neededHeight + metrics.gap) / (metrics.rowUnit + metrics.gap))
+    );
+    tile.style.gridRowEnd = "span " + rowSpan;
   }
 
   var shuffled = shuffle(photos);
@@ -82,6 +106,7 @@
   }
 
   var frag = document.createDocumentFragment();
+  var tilePairs = [];
 
   shuffled.forEach(function (photo, idx) {
     var tile = document.createElement("div");
@@ -93,15 +118,19 @@
       "Open " + (photo.title || "photo") + " in full size"
     );
 
-    // Random cell size within the grid, re-rolled every page load
-    var size = randomSize();
-    tile.style.gridColumn = "span " + size.col;
-    tile.style.gridRow = "span " + size.row;
+    // Random cell width, re-rolled every page load. Height is set once the
+    // image finishes loading (see sizeTileToImage) to match its real aspect
+    // ratio, so nothing gets cropped or letterboxed.
+    tile.style.gridColumn = "span " + randomColSpan();
 
     var img = document.createElement("img");
-    img.src = "/images/photography/" + filenameFor(photo);
+    img.src = "/images/photography/thumbs/" + filenameFor(photo);
     img.alt = photo.title || filenameFor(photo);
     img.loading = "lazy";
+    img.decoding = "async";
+    img.addEventListener("load", function () {
+      sizeTileToImage(tile, img);
+    });
     tile.appendChild(img);
 
     var caption = document.createElement("div");
@@ -120,10 +149,25 @@
       }
     });
 
+    tilePairs.push({ tile: tile, img: img });
     frag.appendChild(tile);
   });
 
   wall.appendChild(frag);
+
+  // Column widths shift on window resize (responsive grid), which changes
+  // how tall each cell needs to be to keep matching its image's aspect
+  // ratio — recompute all of them, debounced so it doesn't run on every
+  // pixel of a drag-resize.
+  var resizeTimer = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      tilePairs.forEach(function (pair) {
+        sizeTileToImage(pair.tile, pair.img);
+      });
+    }, 150);
+  });
 
   // ---------- Lightbox ----------
 
@@ -154,8 +198,22 @@
   function openLightbox(photo) {
     lastFocused = document.activeElement;
     var filename = filenameFor(photo);
-    lightboxImg.src = "/images/photography/" + filename;
+    var thumbSrc = "/images/photography/thumbs/" + filename;
+    var fullSrc = "/images/photography/" + filename;
+
+    // Show the (already-downloaded) thumbnail instantly so the lightbox
+    // never looks empty, then swap in the full-res version once it's
+    // finished loading in the background.
+    lightboxImg.src = thumbSrc;
     lightboxImg.alt = photo.title || filename;
+    lightboxImg.classList.add("is-loading-full");
+
+    var fullImg = new Image();
+    fullImg.onload = function () {
+      lightboxImg.src = fullSrc;
+      lightboxImg.classList.remove("is-loading-full");
+    };
+    fullImg.src = fullSrc;
 
     var html = "<h3>" + (photo.title || filename) + "</h3><dl>";
     METADATA_FIELDS.forEach(function (field) {
