@@ -11,6 +11,34 @@
     return;
   }
 
+  // Excel's "CSV UTF-8" export prepends a hidden BOM character to the first
+  // column's header, which would otherwise silently turn "image_number" into
+  // "\ufeffimage_number" and break everything downstream. Strip it here.
+  function stripBOM(str) {
+    return str.replace(/^\uFEFF/, "").trim();
+  }
+
+  photos = photos.map(function (row) {
+    var clean = {};
+    Object.keys(row).forEach(function (key) {
+      clean[stripBOM(key)] = row[key];
+    });
+    return clean;
+  });
+
+  var missingImageNumber = photos.filter(function (p) {
+    return !p.image_number;
+  });
+  if (missingImageNumber.length) {
+    console.warn(
+      "photo-scatter: " +
+        missingImageNumber.length +
+        " row(s) in _data/photos.csv are missing image_number. " +
+        "Check the CSV header row for typos, extra spaces, or a stray BOM.",
+      missingImageNumber
+    );
+  }
+
   // Fisher-Yates shuffle — re-run on every page load/refresh
   function shuffle(arr) {
     var a = arr.slice();
