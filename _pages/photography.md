@@ -4,7 +4,7 @@ permalink: /photography/
 author_profile: true
 ---
 
-I like photography. Every refresh scatters things a little differently — click a photo to see it larger with details.
+All pictures takes by yours truly on Fujifilm X-H1. Click a photo to see it larger with extra details.
 
 <link rel="stylesheet" href="{{ '/assets/css/photo-scatter.css' | relative_url }}">
 
