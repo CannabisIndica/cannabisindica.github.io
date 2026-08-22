@@ -55,22 +55,18 @@
     return Math.random() * (max - min) + min;
   }
 
-  // Possible cell widths (in grid columns). Weighted so most tiles stay
-  // narrow and a few randomly get pulled out as wider feature tiles —
-  // re-rolled fresh on every page load. Row height is NOT randomized here;
-  // it's computed per-image from its real aspect ratio once it loads, so
-  // photos are never cropped or letterboxed.
-  var COL_OPTIONS = [
-    { col: 1, weight: 5 },
-    { col: 2, weight: 2 },
-  ];
-  var WEIGHTED_COLS = COL_OPTIONS.reduce(function (acc, opt) {
-    for (var i = 0; i < opt.weight; i++) acc.push(opt.col);
-    return acc;
-  }, []);
+  // A photo needs to be at least this much wider than tall to be considered
+  // "landscape" and eligible for a wide (2-column) cell. Portrait and
+  // square photos always stay at 1 column — otherwise doubling their width
+  // also doubles their required height (to keep the aspect ratio), which is
+  // what was producing those oversized, feed-breaking tiles.
+  var LANDSCAPE_ASPECT_THRESHOLD = 1.15;
+  var WIDE_COLUMN_CHANCE = 0.4; // of eligible landscape photos, how many actually go wide
 
-  function randomColSpan() {
-    return WEIGHTED_COLS[Math.floor(Math.random() * WEIGHTED_COLS.length)];
+  function chooseColSpan(aspect) {
+    var isLandscape = aspect >= LANDSCAPE_ASPECT_THRESHOLD;
+    if (isLandscape && Math.random() < WIDE_COLUMN_CHANCE) return 2;
+    return 1;
   }
 
   // Reads the grid's row height + gap straight from CSS so this stays in
@@ -82,18 +78,31 @@
     return { rowUnit: rowUnit, gap: gap };
   }
 
+  // Safety net: even with aspect-aware column choice, an unusually extreme
+  // photo (e.g. a phone panorama) could still produce a tile tall enough to
+  // dominate the whole grid. Cap how tall any single tile is allowed to get,
+  // in row units — beyond this, the tile is capped and object-fit: cover
+  // (already the default) will crop the excess. This only ever affects
+  // genuinely extreme outliers, not normal portrait or landscape photos.
+  var MAX_ROW_SPAN = 55;
+
   // Sizes a tile's grid-row span so its height matches the image's real
-  // aspect ratio at its current rendered width — no crop, no empty space.
+  // aspect ratio at its current rendered width — no crop, no empty space,
+  // except for the rare extreme-outlier case capped by MAX_ROW_SPAN above.
   function sizeTileToImage(tile, img) {
     if (!img.naturalWidth || !img.naturalHeight) return;
     var metrics = getGridMetrics();
-    var width = tile.getBoundingClientRect().width;
     var aspect = img.naturalWidth / img.naturalHeight;
+
+    tile.style.gridColumn = "span " + chooseColSpan(aspect);
+
+    var width = tile.getBoundingClientRect().width;
     var neededHeight = width / aspect;
     var rowSpan = Math.max(
       1,
       Math.round((neededHeight + metrics.gap) / (metrics.rowUnit + metrics.gap))
     );
+    rowSpan = Math.min(rowSpan, MAX_ROW_SPAN);
     tile.style.gridRowEnd = "span " + rowSpan;
   }
 
@@ -118,19 +127,23 @@
       "Open " + (photo.title || "photo") + " in full size"
     );
 
-    // Random cell width, re-rolled every page load. Height is set once the
-    // image finishes loading (see sizeTileToImage) to match its real aspect
-    // ratio, so nothing gets cropped or letterboxed.
-    tile.style.gridColumn = "span " + randomColSpan();
+    // Starts at 1 column so nothing looks broken before the image loads.
+    // The real column/row sizing (aspect-ratio aware) is applied in
+    // sizeTileToImage once we know the image's actual dimensions.
+    tile.style.gridColumn = "span 1";
 
     var img = document.createElement("img");
-    img.src = "/images/photography/thumbs/" + filenameFor(photo);
     img.alt = photo.title || filenameFor(photo);
     img.loading = "lazy";
     img.decoding = "async";
-    img.addEventListener("load", function () {
-      sizeTileToImage(tile, img);
-    });
+    // NOTE: img.src is deliberately NOT set here. Setting it now would start
+    // the image loading while `tile` is still inside a detached
+    // DocumentFragment (not yet part of the live page). If the image loads
+    // fast — which thumbnails do — the "load" event can fire before the
+    // tile has real layout, so getBoundingClientRect() returns 0 width and
+    // every photo collapses to a 1-row square regardless of its real aspect
+    // ratio. Instead we attach all tiles to the page first, then set src
+    // afterwards (see below) so layout is always ready when images load.
     tile.appendChild(img);
 
     var caption = document.createElement("div");
@@ -149,11 +162,22 @@
       }
     });
 
-    tilePairs.push({ tile: tile, img: img });
+    tilePairs.push({ tile: tile, img: img, photo: photo });
     frag.appendChild(tile);
   });
 
   wall.appendChild(frag);
+
+  // Now that every tile has real layout (attached to the live grid), it's
+  // safe to start loading images — sizeTileToImage will get an accurate
+  // width whenever each image finishes loading.
+  tilePairs.forEach(function (pair) {
+    function handleReady() {
+      sizeTileToImage(pair.tile, pair.img);
+    }
+    pair.img.addEventListener("load", handleReady);
+    pair.img.src = "/images/photography/thumbs/" + filenameFor(pair.photo);
+  });
 
   // Column widths shift on window resize (responsive grid), which changes
   // how tall each cell needs to be to keep matching its image's aspect
