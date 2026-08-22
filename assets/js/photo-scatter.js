@@ -50,7 +50,7 @@
   // Spreadsheet only gives the bare image number (e.g. "0231").
   // Actual filenames on disk are DSFC0231.jpg
   function filenameFor(photo) {
-    return "DSFC" + photo.image_number + ".jpg";
+    return "DSCF" + photo.image_number + ".jpg";
   }
 
   var frag = document.createDocumentFragment();
