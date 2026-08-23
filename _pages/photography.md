@@ -1,7 +1,7 @@
 ---
 title: "Photography"
 permalink: /photography/
-author_profile: true
+author_profile: false
 ---
 
 All pictures takes by yours truly on Fujifilm X-H1. Click a photo to see it larger with extra details (Note: Testing the style and structure of this page, and thus just a few pictures uploaded).
