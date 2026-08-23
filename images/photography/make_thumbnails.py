@@ -29,7 +29,7 @@ already have a thumbnail unless you delete the old thumbnail first.
 """
 
 import os
-from PIL import Image
+from PIL import Image, ImageOps
 
 # ---- Settings you can tweak ----
 SOURCE_DIR = "."              # folder containing your full-res DSFC####.jpg files
@@ -63,6 +63,15 @@ def main():
             continue
 
         with Image.open(src_file) as img:
+            # Many cameras save image data in the sensor's native landscape
+            # orientation and rely on a hidden EXIF tag to say "rotate this
+            # for display." Pillow drops that tag by default when saving a
+            # new file, which would leave the thumbnail's actual pixels
+            # sideways even though nothing looks wrong when you preview it
+            # in a normal photo viewer (which does respect the tag). This
+            # bakes the correct rotation into the real pixel data first, so
+            # the saved thumbnail is correctly oriented no matter what.
+            img = ImageOps.exif_transpose(img)
             img = img.convert("RGB")  # handles any CMYK/PNG-in-jpg edge cases
             img.thumbnail((MAX_DIMENSION, MAX_DIMENSION), Image.LANCZOS)
             img.save(dst_file, "JPEG", quality=JPEG_QUALITY, optimize=True)

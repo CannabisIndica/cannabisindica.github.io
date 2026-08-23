@@ -1,6 +1,7 @@
 ---
 title: "Photography"
 permalink: /photography/
+author_profile: false
 classes: wide
 ---
 

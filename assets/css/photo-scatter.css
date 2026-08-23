@@ -1,3 +1,21 @@
+/* ---------- Full-bleed override for this page ----------
+   Minimal Mistakes / Academic Pages caps page content at a fixed max-width
+   site-wide (independent of the sidebar). "classes: wide" in front matter
+   only removes the sidebar's reserved space — it does NOT make the page
+   span the full browser width. This override forces the photo grid's
+   containers past that cap, specifically on this page only (since this
+   stylesheet is only loaded here). */
+#main,
+.initial-content,
+.page {
+  max-width: 100% !important;
+}
+
+.page__inner-wrap {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 /* ---------- Randomized photo grid ---------- */
 
 .photo-scatter {
