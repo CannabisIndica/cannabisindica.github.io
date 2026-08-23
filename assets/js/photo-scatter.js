@@ -86,16 +86,28 @@
   // genuinely extreme outliers, not normal portrait or landscape photos.
   var MAX_ROW_SPAN = 55;
 
-  // Sizes a tile's grid-row span so its height matches the image's real
-  // aspect ratio at its current rendered width — no crop, no empty space,
-  // except for the rare extreme-outlier case capped by MAX_ROW_SPAN above.
-  function sizeTileToImage(tile, img) {
+  // Called ONCE per tile, when its image first loads. Randomly decides the
+  // column span (the only random part) and stores the image's aspect ratio
+  // on the tile for later reuse. This decision must never be re-rolled —
+  // see recalcRowSpan below for why.
+  function assignInitialLayout(tile, img) {
     if (!img.naturalWidth || !img.naturalHeight) return;
-    var metrics = getGridMetrics();
     var aspect = img.naturalWidth / img.naturalHeight;
-
+    tile.dataset.aspect = aspect;
     tile.style.gridColumn = "span " + chooseColSpan(aspect);
+    recalcRowSpan(tile);
+  }
 
+  // Recomputes ONLY the row span, using the tile's already-decided column
+  // span and stored aspect ratio. Safe to call repeatedly (e.g. on window
+  // resize) without ever changing a tile's column width or re-randomizing
+  // anything — mobile browsers fire "resize" constantly as their address
+  // bar collapses/expands while scrolling, and re-randomizing on every one
+  // of those was what made the whole grid reshuffle on every scroll.
+  function recalcRowSpan(tile) {
+    var aspect = parseFloat(tile.dataset.aspect);
+    if (!aspect) return;
+    var metrics = getGridMetrics();
     var width = tile.getBoundingClientRect().width;
     var neededHeight = width / aspect;
     var rowSpan = Math.max(
@@ -129,7 +141,7 @@
 
     // Starts at 1 column so nothing looks broken before the image loads.
     // The real column/row sizing (aspect-ratio aware) is applied in
-    // sizeTileToImage once we know the image's actual dimensions.
+    // assignInitialLayout once we know the image's actual dimensions.
     tile.style.gridColumn = "span 1";
 
     var img = document.createElement("img");
@@ -169,26 +181,36 @@
   wall.appendChild(frag);
 
   // Now that every tile has real layout (attached to the live grid), it's
-  // safe to start loading images — sizeTileToImage will get an accurate
-  // width whenever each image finishes loading.
+  // safe to start loading images — assignInitialLayout will get an accurate
+  // width whenever each image finishes loading, and decides that tile's
+  // column span exactly once.
   tilePairs.forEach(function (pair) {
     function handleReady() {
-      sizeTileToImage(pair.tile, pair.img);
+      assignInitialLayout(pair.tile, pair.img);
     }
     pair.img.addEventListener("load", handleReady);
     pair.img.src = "/images/photography/thumbs/" + filenameFor(pair.photo);
   });
 
-  // Column widths shift on window resize (responsive grid), which changes
-  // how tall each cell needs to be to keep matching its image's aspect
-  // ratio — recompute all of them, debounced so it doesn't run on every
-  // pixel of a drag-resize.
+  // Column widths shift on a genuine window resize (e.g. rotating a phone,
+  // or resizing a desktop browser), which changes how tall each cell needs
+  // to be to keep matching its image's aspect ratio — recompute row spans
+  // only (never column spans, see recalcRowSpan's comment above).
+  //
+  // Mobile browsers also fire "resize" simply from their address bar
+  // collapsing/expanding while scrolling, without the viewport width
+  // actually changing — we track the last known width and skip recompute
+  // entirely when only the height changed, so scrolling on a phone no
+  // longer triggers any relayout at all.
   var resizeTimer = null;
+  var lastWidth = window.innerWidth;
   window.addEventListener("resize", function () {
+    if (window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
       tilePairs.forEach(function (pair) {
-        sizeTileToImage(pair.tile, pair.img);
+        recalcRowSpan(pair.tile);
       });
     }, 150);
   });
