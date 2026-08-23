@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Kushagra (or Kush; whatever you can pronouce). I am an Year 4 Physics Undergraduate at the National University of Singapore. Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to display the stuff I do (astronomy and beyond) as its difficult to show anywhere else. It is not meant to replace my [CV](/files/Kushagra_CV.pdf). Enjoy :).
+I am Kushagra (or Kush; whatever you can pronouce). I am an Year 4 Physics Undergraduate at the National University of Singapore. Astronomy makes me happy, and over the past 7 years I have constructed my personality around it (also evident on this website). I created this website to display the stuff I do (astronomy and beyond) as its difficult to show anywhere else. It is not meant to replace my [CV](/files/Kushagra_CV.pdf?v={{ site.time | date: '%s' }}). Enjoy :).
 
 
 <figure style="text-align:justify; width:100%; margin:0 auto; display:inline-block;">
